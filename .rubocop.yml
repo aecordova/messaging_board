@@ -1,0 +1,15 @@
+# This is the configuration used to check the rubocop source code.
+
+require:
+  - rubocop/cop/internal_affairs
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  Include:
+    - 'app/**/*.rb'
+    - 'spec/**/*.rb'
+  Exclude:
+    - 'bin/**/*'
+  TargetRubyVersion: 2.5
+  SuggestExtensions: false
