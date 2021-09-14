@@ -1,0 +1,11 @@
+<%= tag.div do %>
+  <%= tag.div do %>
+    <%= tag.div class:"text-end text-secondary" do %>
+        <%= tag.span(post.author.username) %> 
+        <%= tag.small " - #{time_ago_in_words(post.created_at)} ago", class: "fw-lighter" %>
+    <% end %>
+    <%= tag.h5(post.title)  %>
+    <%= tag.div post.body, class:"text-justify" %>
+    <hr>
+  <% end %>
+<% end %>
