@@ -1,0 +1,10 @@
+  <%= tag.div do %>
+    <%= tag.div class:"text-start text-secondary text-end" do %>
+        <%= tag.span comment.author.username.capitalize %> 
+        <%= tag.small "- #{time_ago_in_words(comment.created_at)} ago", class: "fw-lighter" %>
+    <% end %>
+    <%= tag.div class:"pl-3" do %>
+      - "<%= comment.content %> "
+    <% end %>
+    <br>
+  <% end %>
