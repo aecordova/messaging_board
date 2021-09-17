@@ -1,4 +1,7 @@
 <%= content_for :section_header, "Message Detail" %>
+<%= content_for :main_action do %>
+    <%= link_to("Back to All Messages", posts_path, class: 'btn btn-outline-primary btn-sm rounded-pill') if user_signed_in? %> 
+<% end %>
 
 <%= tag.div do %>
   <%= tag.div do %>

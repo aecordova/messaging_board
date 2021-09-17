@@ -1,8 +1,9 @@
 <div class="container">
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <%= image_tag("logo", width:30, height:30, class:"d-inline-block align-top", alt:"logo") %>
       Messaging Board
     </a>
+    <%= link_to_if user_signed_in?, "Log Out", destroy_user_session_path, class: 'btn btn-outline-dark btn-sm rounded-pill' %>
   </nav>
 </div>
