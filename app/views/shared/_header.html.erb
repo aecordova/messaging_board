@@ -1,6 +1,6 @@
 <%= tag.header class:"container justify-content-center" do %>
   <%= tag.div class: "d-flex justify-content-between align-items-center" do %>
     <%= tag.h1(yield(:section_header), class: 'my-3') %> 
-    <%= tag.button("New", class: 'btn btn-outline-primary btn-sm rounded-pill') %> 
+    <%= tag.button("New", class: 'btn btn-outline-primary btn-sm rounded-pill', data: {"bs-toggle": "modal", "bs-target": "#new-message-modal"}) %> 
   <% end %>
 <% end %>
