@@ -1,3 +1,6 @@
 <%= content_for :section_header, "Messages" %>
+<%= content_for :main_action do %>
+    <%= tag.button("New", class: 'btn btn-outline-primary btn-sm rounded-pill', data: {"bs-toggle": "modal", "bs-target": "#new-message-modal"}) if user_signed_in? %> 
+<% end %>
 <%= render 'shared/messages_modal' %>
 <%= render @posts %>
