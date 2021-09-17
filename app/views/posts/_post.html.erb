@@ -6,6 +6,13 @@
     <% end %>
     <%= tag.h5(post.title)  %>
     <%= tag.div post.body, class:"text-justify" %>
-    <hr>
   <% end %>
+ 
+  <%= tag.div class:"text-end mt-1" do %>
+      <%= tag.button("Reply", class: 'btn btn-outline-primary btn-sm rounded-pill', data: { "bs-toggle": "collapse", "bs-target": "#new-comment-form-#{dom_id(post)}"}, aria: {expanded: "false", controls:"new-comment-form" }) %> 
+      
+      <%= tag.button(see_comments_caption(post), class: 'btn btn-outline-primary btn-sm rounded-pill', disabled: !post.comments.any?) %> 
+  <% end %>
+   <%= render 'shared/comments_collapsable_form', post: post %>
+  <hr>
 <% end %>
