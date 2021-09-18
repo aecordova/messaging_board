@@ -7,6 +7,8 @@ gem 'devise'
 gem 'pg'
 gem 'factory_bot_rails'
 gem 'faker'
+gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
+
 
 gem 'rexml'
 

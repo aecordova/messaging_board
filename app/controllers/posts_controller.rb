@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.includes(:author, :comments).most_recent_first
+    @posts = Post.includes(:author, :comments).most_recent_first.page(params[:page])
   end
 
   def show

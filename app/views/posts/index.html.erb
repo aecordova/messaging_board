@@ -3,4 +3,5 @@
     <%= tag.button("New Message", class: 'btn btn-outline-primary btn-sm rounded-pill', data: {"bs-toggle": "modal", "bs-target": "#new-message-modal"}) if user_signed_in? %> 
 <% end %>
 <%= render 'shared/messages_modal' %>
+<%= paginate @posts, window: 2 %>
 <%= render @posts %>
