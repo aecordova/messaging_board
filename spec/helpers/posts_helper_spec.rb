@@ -2,16 +2,26 @@
 
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the PostsHelper. For example:
-#
-# describe PostsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe PostsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#see_comments_caption' do
+    let(:message) { create :post }
+
+    context 'when given post has comments' do
+      before { create_list(:comment, 4, post: message) }
+
+      it 'returns See comments and the number of comments' do
+        expected_message = "See Comments [ #{message.comments.count} ]"
+
+        expect(see_comments_caption(message)).to eql(expected_message)
+      end
+    end
+
+    context 'whren given post has no comments' do
+      it 'returns No comments yet' do
+        expected_message = 'No comments yet'
+
+        expect(see_comments_caption(message)).to eql(expected_message)
+      end
+    end
+  end
 end
