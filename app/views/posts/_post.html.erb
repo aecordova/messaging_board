@@ -1,0 +1,20 @@
+<%= tag.div do %>
+  <%= tag.div do %>
+    <%= tag.div class:"text-end text-secondary" do %>
+        <%= tag.span(post.author.username) %> 
+        <%= tag.small " - #{time_ago_in_words(post.created_at)} ago", class: "fw-lighter" %>
+    <% end %>
+    <%= tag.h5(post.title)  %>
+    <%= tag.div post.body, class:"text-justify" %>
+  <% end %>
+ 
+  <%= tag.div class:"text-end mt-1" do %>
+      <%= tag.button("Reply", class: 'btn btn-outline-primary btn-sm rounded-pill', data: { "bs-toggle": "collapse", "bs-target": "#new-comment-form-#{dom_id(post)}"}, aria: {expanded: "false", controls:"new-comment-form" }) %> 
+      
+      <%= link_to_if post.comments.any?, see_comments_caption(post), post_path(id: post),class: 'btn btn-outline-primary btn-sm rounded-pill' do %>
+        <%= tag.span(see_comments_caption(post), class:"btn btn-outline-secondary btn-sm rounded-pill" )  %>
+      <% end %> 
+  <% end %>
+   <%= render 'shared/comments_collapsable_form', post: post %>
+  <hr>
+<% end %>

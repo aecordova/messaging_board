@@ -1,0 +1,10 @@
+  <%= tag.div class:"collapse", id:"new-comment-form-#{dom_id(post)}" do %>
+    <%= form_with model: Comment.new, url: post_comments_path(post_id: post.id) do |f| %>
+      <%= tag.div class:"card card-body mt-3" do%>
+        <%= f.text_area :content, id: "comment-body", class: 'form-control border-0' %>
+      <% end%>
+      <%= tag.div class: "text-end mt-2" do %>
+        <%= f.submit "Save Comment", class:"btn btn-outline-primary btn-sm rounded-pill mt-1"  %>
+      <% end%>
+    <% end%>
+  <% end %>
