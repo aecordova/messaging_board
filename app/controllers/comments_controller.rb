@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
+# Comments Controller
 class CommentsController < ApplicationController
   def create
     comment = post.comments.build(comment_params)
     if comment.save
-      flash[:success] = "Comment Added Successfully"
+      flash[:success] = 'Comment Added Successfully'
     else
       flash[:error] = error_messages(comment)
     end
