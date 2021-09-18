@@ -3,15 +3,16 @@ class PostsController < ApplicationController
   def create
     post = current_user.posts.new(post_params)
     if post.save
-      redirect_back fallback_location: root_path
+      flash[:success] = "Message Created Successfully"
     else
-      flash[:error] = "Post not created"
-      redirect_back fallback_location: root_path
+      flash[:error] = error_messages(post)
     end
+    
+    redirect_back fallback_location: root_path
   end
   
   def index
-    @posts = Post.includes(:author).most_recent_first
+    @posts = Post.includes(:author, :comments).most_recent_first
   end
 
   def show

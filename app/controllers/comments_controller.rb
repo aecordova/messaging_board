@@ -1,7 +1,13 @@
 class CommentsController < ApplicationController
   def create
-    comment = post.comments.new(comment_params)
-    redirect_back fallback_location: root_path if comment.save
+    comment = post.comments.build(comment_params)
+    if comment.save
+      flash[:success] = "Comment Added Successfully"
+    else
+      flash[:error] = error_messages(comment)
+    end
+
+    redirect_back fallback_location: root_path
   end
 
   private
